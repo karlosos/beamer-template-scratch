@@ -41,9 +41,16 @@
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{items}[square]
-\setbeamertemplate{itemize item}{\tikz{\draw[color=ScratchBrown, semithick] rectangle(.2,.2);}}
-\setbeamertemplate{itemize subitem}{\tikz{\draw[color=ScratchOrange, ultra thick] rectangle(.2,.2);}}
-\setbeamertemplate{itemize subsubitem}{\tikz{\draw[color=ScratchLightOrange] rectangle(.2,.2);}}
+% \setbeamertemplate{itemize item}{\tikz{\draw[color=ScratchBrown, semithick] rectangle(.2,.2);}}
+% \setbeamertemplate{itemize subitem}{\tikz{\draw[color=ScratchOrange, ultra thick] rectangle(.2,.2);}}
+% \setbeamertemplate{itemize subsubitem}{\tikz{\draw[color=ScratchLightOrange] rectangle(.2,.2);}}
+
+\defbeamertemplate*{itemize item}{ScratchBrown}{$\bullet$}
+\defbeamertemplate*{itemize subitem}{ScratchBrown}{\---}
+\defbeamertemplate*{itemize subsubitem}{ScratchBrown}{\guillemotright}
+
+\setbeamertemplate{enumerate items}[default]
+
 \setbeamertemplate{sections/subsections in toc}[square]
 
 \setbeamertemplate{bibliography item}[text]
