@@ -17,6 +17,7 @@
 
 % Title page
 \setbeamertemplate{title page}{
+    \setcounter{framenumber}{0}
 	\begin{textblock*}{12cm}(2.5cm, 1.5cm)
     \begin{beamercolorbox}[wd=8cm]{title page header}
       \usebeamerfont{title}\usebeamercolor{title}\inserttitle%
@@ -46,5 +47,19 @@
 \setbeamertemplate{sections/subsections in toc}[square]
 
 \setbeamertemplate{bibliography item}[text]
+
+% Footer
+\defbeamertemplate*{footline}{fibeamer}{%
+    \ifnum\c@framenumber=0\else%
+      \begin{tikzpicture}[overlay]
+        \node[anchor=south east,
+          yshift=0.1cm,
+          xshift=-0.1cm] at
+          (current page.south east) {
+            \usebeamercolor[fg]{framenumber}%
+            \usebeamerfont{framenumber}%
+            \insertframenumber/\inserttotalframenumber};
+      \end{tikzpicture}
+    \fi}
 
 \mode<all>
