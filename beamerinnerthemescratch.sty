@@ -1,0 +1,37 @@
+\RequirePackage{tikz, datetime, textpos}
+
+\mode<presentation>
+
+% Backgrounds
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fill[color=brown] (0,2) rectangle (\the\paperwidth,\the\paperheight);
+        \fill[color=orange] (0,0) rectangle(2.95,1.9);
+        \fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
+        \ifnum\thepage>1\relax%
+            \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fi
+    \end{tikzpicture}
+}
+
+% Title page
+\setbeamertemplate{title page}{
+	\begin{textblock*}{12cm}(2.5cm, 1.5cm)
+    \begin{beamercolorbox}[wd=8cm]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\inserttitle%
+    \end{beamercolorbox}%
+    \end{textblock*}
+    \begin{textblock*}{9cm}(2.5cm, 2.5cm)
+	    \begin{beamercolorbox}{author}
+	      \usebeamerfont{author}\insertauthor%
+    	\end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock*}{9cm}(2.5cm, 4.5cm)
+		\begin{beamercolorbox}{date}
+	      \usebeamerfont{date}\insertdate%
+	    \end{beamercolorbox}
+    \end{textblock*}
+}
+
+\mode<all>
