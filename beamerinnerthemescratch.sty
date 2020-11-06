@@ -6,9 +6,9 @@
 \setbeamertemplate{background}{
     \begin{tikzpicture}
         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \fill[color=brown] (0,2) rectangle (\the\paperwidth,\the\paperheight);
-        \fill[color=orange] (0.1,0.1) rectangle(2.95,1.9);
-        \fill[color=blue!50!cyan!80] (3.05,0.1) rectangle(\the\paperwidth-3.1,1.9);
+        \fill[color=ScratchBrown] (0,2) rectangle (\the\paperwidth,\the\paperheight);
+        \fill[color=ScratchOrange] (0.1,0.1) rectangle(2.95,1.9);
+        \fill[color=ScratchLightBlue] (3.05,0.1) rectangle(\the\paperwidth-3.1,1.9);
         \ifnum\thepage>1\relax%
             \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
         \fi
@@ -33,5 +33,18 @@
 	    \end{beamercolorbox}
     \end{textblock*}
 }
+
+% Bullets as squares
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{items}[square]
+\setbeamertemplate{itemize item}{\tikz{\draw[color=ScratchBrown, semithick] rectangle(.2,.2);}}
+\setbeamertemplate{itemize subitem}{\tikz{\draw[color=ScratchOrange, ultra thick] rectangle(.2,.2);}}
+\setbeamertemplate{itemize subsubitem}{\tikz{\draw[color=ScratchLightOrange] rectangle(.2,.2);}}
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\setbeamertemplate{bibliography item}[text]
 
 \mode<all>

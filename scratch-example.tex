@@ -17,7 +17,7 @@
 % Additional packages that were not explicitly imported
 \usepackage{dsfont}
 \usepackage{carlito}
-
+\usepackage{hyperref}
 
 \title{My own \LaTeX Beamer template}
 \date[\today]{\today \\ Zachodniopomorski Uniwersytet Technologiczny}
@@ -35,12 +35,12 @@
 \subsection{Blind Text}
 \begin{frame}{Jabberwocky}
     \framesubtitle{Lewis Carroll}%
-    % \begin{tikzpicture}[overlay,remember picture]
-    % \node[anchor=south east,xshift=-30pt,yshift=35pt]
-    %     at (current page.south east) {
-    %     \includegraphics[width=35mm]{resources/jabberwocky-light}
-    %     };
-    % \end{tikzpicture}%
+    \begin{tikzpicture}[overlay,remember picture]
+    \node[anchor=south east,xshift=-30pt,yshift=40pt]
+        at (current page.south east) {
+        \includegraphics[width=35mm]{resources/jabberwocky-light}
+        };
+    \end{tikzpicture}%
     'Twas brillig, and the slithy toves\\
     Did gyre and gimble in the wabe;\\
     All mimsy were the borogoves,\\
