@@ -16,6 +16,8 @@
 \usepackage{listings}  % Code listings
 % Additional packages that were not explicitly imported
 \usepackage{dsfont}
+\usepackage{algorithm, algpseudocode}
+\usepackage{changepage}
 
 \title{My own \LaTeX Beamer template}
 \date[\today]{\today \\ Zachodniopomorski Uniwersytet Technologiczny}
@@ -279,6 +281,48 @@ int main(int argc, char **argv)
 \end{lstlisting}}
 \begin{frame}{Code listings}{An example source code in C}
     \sleepSort
+\end{frame}
+
+\begin{frame}
+	\begin{algorithm}[H]
+		\caption{Text Summarization Algorithm}\label{euclid}
+		\begin{algorithmic}[1]
+			\Procedure{Summary Construction}{}\newline
+			\textbf{Input:} Text Document.\newline
+			\textbf{Output:} Summary sentences.
+			\State{Creating information table from a text document.}
+			\State{Generate matrices.}
+			\State {\textbf{Call Pocedure:} Reduct Construction \textbf{[Algorithm 2]}}
+			\State {\textbf{Return:} Summary sentences}
+			\EndProcedure
+		\end{algorithmic}
+		\label{alg_1}
+	\end{algorithm}
+\end{frame}
+
+\begin{frame}{RealBoost algorithm}{With narrow margins}
+	% https://tex.stackexchange.com/a/200172/228402
+	  \begin{columns}
+		\column{\dimexpr\paperwidth-10pt}
+		\begin{algorithm}[H]
+			\caption{Algorytm RealBoost}\label{realboost}
+			\small
+			\begin{algorithmic}[1]
+				\Procedure{RealBoost}{$D$}
+				\State{Rozpocznij od jednostajnego rozkładu wag: $w_i := 1/m, i=1, \ldots, m$.}
+				\For{$t:=1,\ldots, T$}
+					\State Naucz klasyfikator $f_t(x) \in \mathds{R}$ na danych uczących używając wag $w_i$, tak aby $f_t$ minimalizowało \emph{kryterium wykładnicze} $\sum_{i=1}^{m} w_i e^{-f_t(x_i)y_i}$ lub równoważnie aby $f_t$ było przybliżeniem połowy przekształcenia logit:
+					\Statex $f_{t}(\mathbf{x}):=1 / 2 \ln \left\{\widehat{P}_{w}(y=1 \mid \mathbf{x}) \sqrt{P}_{w}(y=-1 \mid \mathbf{x})\right)$
+					\State Aktualizuj wagi przykładów wg:
+					\Statex $Z_{t}:=\sum_{i=1}^{i n} w_{i} e^{-f_{i}\left(x_{i}\right) y_{i}}$
+					\Statex $w_{i}:=w_{i} e^{-f_{i}\left(\mathbf{x}_{i}\right) y_{i}} / Z_{t}, \quad i=1, \ldots, m$
+				\EndFor\\
+				\Return zbiorowy klasyfikator $F(\mathbf{x}):=\sum_{t=1}^{T} f_{t}(\mathbf{x})$ z decyzją obliczaną jako sgn $F(x)$.
+				\EndProcedure
+			\end{algorithmic}
+			\label{alg_2}
+		\end{algorithm}
+	\end{columns}
 \end{frame}
 
 \subsection{Citations and Bibliography}
