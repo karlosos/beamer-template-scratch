@@ -26,15 +26,29 @@
     \end{beamercolorbox}%
     \vspace{1em}
 	\begin{beamercolorbox}{author}
-	      \usebeamerfont{author}\insertauthor%
+	      \usebeamerfont{author}\insertauthor \\
+	      {\hypersetup{urlcolor=white} \texttt{\href{mailto:\@email}{\@email}}}
     	\end{beamercolorbox}
     \end{textblock*}
 
-    \begin{textblock*}{9cm}(2.5cm, 4.4cm)
-		\begin{beamercolorbox}{date}
-	      \usebeamerfont{date}\insertdate%
-	    \end{beamercolorbox}
-    \end{textblock*}
+    \ifx\insertinstitute\@empty%
+        {
+        \begin{textblock*}{9cm}(2.5cm, 4.6cm)
+    		\begin{beamercolorbox}{date}
+    	      \usebeamerfont{date}\insertdate
+    	    \end{beamercolorbox}
+        \end{textblock*} 
+        }
+        \else%
+        {
+        \begin{textblock*}{9cm}(2.5cm, 4.4cm)
+    		\begin{beamercolorbox}{date}
+    	      \usebeamerfont{date}\insertdate \\
+    	      \insertinstitute
+    	    \end{beamercolorbox}
+        \end{textblock*} 
+        }%
+    \fi
 }
 
 % Bullets as squares
