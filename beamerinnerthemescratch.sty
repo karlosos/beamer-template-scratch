@@ -1,4 +1,6 @@
-\RequirePackage{tikz, datetime, textpos}
+\RequirePackage{tikz, datetime}
+%\RequirePackage[showboxes]{textpos} % for debugging textblock
+\RequirePackage{textpos}
 
 \mode<presentation>
 
@@ -18,13 +20,12 @@
 % Title page
 \setbeamertemplate{title page}{
     \setcounter{framenumber}{0}
-	\begin{textblock*}{12cm}(2.5cm, 1.5cm)
+	\begin{textblock*}{9cm}[0,1](2.5cm, 3cm)
     \begin{beamercolorbox}[wd=8cm]{title page header}
       \usebeamerfont{title}\usebeamercolor{title}\inserttitle%
     \end{beamercolorbox}%
-    \end{textblock*}
-    \begin{textblock*}{9cm}(2.5cm, 2.5cm)
-	    \begin{beamercolorbox}{author}
+    \vspace{1em}
+	\begin{beamercolorbox}{author}
 	      \usebeamerfont{author}\insertauthor%
     	\end{beamercolorbox}
     \end{textblock*}
